@@ -84,7 +84,7 @@ public class Telemetry {
             pose.getRotation().getDegrees()
         });
 
-        /* Telemeterize the robot's general speeds */
+        /* Telemeterize the robot's general speeds */                                                 
         double currentTime = Utils.getCurrentTimeSeconds();
         double diffTime = currentTime - lastTime;
         lastTime = currentTime;
