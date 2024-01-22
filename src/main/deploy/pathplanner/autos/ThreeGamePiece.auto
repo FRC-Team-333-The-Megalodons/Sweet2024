@@ -1,0 +1,43 @@
+{
+  "version": 1.0,
+  "startingPose": {
+    "position": {
+      "x": 1.4048307100172925,
+      "y": 4.226375617638543
+    },
+    "rotation": 123.85511211211103
+  },
+  "command": {
+    "type": "sequential",
+    "data": {
+      "commands": [
+        {
+          "type": "path",
+          "data": {
+            "pathName": "TowardsTheLeftCNote"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "FirstWingShotPath"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "SecondPickUpPath"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "LastPath"
+          }
+        }
+      ]
+    }
+  },
+  "folder": "Autos",
+  "choreoAuto": false
+}
