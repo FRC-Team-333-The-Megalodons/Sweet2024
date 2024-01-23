@@ -13,6 +13,11 @@ import frc.robot.LimeLightHelper;
 
 public class LimeLight extends SubsystemBase {
   /** Creates a new Limelight. */
+  public boolean tracking = false;
+  public boolean isInRange = false;
+  public boolean isCenterd = false;
+  public boolean isLeft = false;
+  public boolean isRight = false;
   public LimeLight() {
     NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
     NetworkTableEntry tx = table.getEntry("tx");
@@ -20,13 +25,31 @@ public class LimeLight extends SubsystemBase {
     NetworkTableEntry ta = table.getEntry("ta");
 
 //read values periodically
-    double x = tx.getDouble(0.0);
-    double y = ty.getDouble(0.0);
-    double area = ta.getDouble(0.0);
+
 
 //post to smart dashboard periodically
 
   }
+  private  double getTheObject(){
+    return LimeLightHelper.getTX("limelight");
+  }
+  public void driveTowardsObject(){
+    if (getTheObject() == 0) {
+        isCenterd = true;
+        isLeft = false;
+        isRight = false;
+
+    }else if (getTheObject() < 0 ) {
+        isLeft = true;
+        isCenterd = false;
+        isRight = false;
+    } else {
+        isLeft = false;
+        isCenterd = false;
+        isRight = true;
+    }
+}
+
 
   @Override
   public void periodic() {
@@ -34,5 +57,6 @@ public class LimeLight extends SubsystemBase {
      SmartDashboard.putNumber("TX", LimeLightHelper.getTX("limelight"));
      SmartDashboard.putNumber("TY", LimeLightHelper.getTY("limelight"));
      SmartDashboard.putNumber("TA", LimeLightHelper.getTA("limelight"));
+
   }
 }

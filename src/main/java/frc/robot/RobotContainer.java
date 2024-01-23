@@ -17,12 +17,13 @@ import frc.robot.subsystems.LimeLight;
 public class RobotContainer {
   private double MaxSpeed = 6; // 6 meters per second desired top speed
   private double MaxAngularRate = 1.5 * Math.PI; // 3/4 of a rotation per second max angular velocity
+  private double MinAngularRate = 1*Math.PI;
 
   /* Setting up bindings for necessary control of the swerve drive platform */
   private final CommandXboxController roller = new CommandXboxController(0); // My roller
   private final CommandSwerveDrivetrain drivetrain = TunerConstants.DriveTrain; // My drivetrain
   private final LimeLight m_LimeLight = new LimeLight();
-  private Command runAuto = drivetrain.getAutoPath("ThreeGamePiece");
+  private Command runAuto = drivetrain.getAutoPath("FourGamePiece");
   
   private final SwerveRequest.FieldCentric drive = new SwerveRequest.FieldCentric()
       .withDeadband(MaxSpeed * 0.1).withRotationalDeadband(MaxAngularRate * 0.1) // Add a 10% deadband
@@ -45,9 +46,15 @@ public class RobotContainer {
         drivetrain.applyRequest(() -> drive.withVelocityX(-roller.getLeftY() * MaxSpeed) // Drive forward with
                                                                                            // negative Y (forward)
             .withVelocityY(-roller.getLeftX() * MaxSpeed) // Drive left with negative X (left)
-            .withRotationalRate(-roller.getRightX() * MaxAngularRate) // Drive counterclockwise with negative X (left)
+            .withRotationalRate(-roller.getRightX() * MaxAngularRate)// Drive counterclockwise with negative X (left) 
         ));
-
+    roller.y().whileTrue(drivetrain.applyRequest(() -> drive.withRotationalRate(MinAngularRate)));
+    //roller.x().whileTrue(null);
+    //
+    roller.x().whileTrue((m_LimeLight.isCenterd) ? drivetrain.applyRequest(() -> drive.withRotationalRate(0)): null);  
+    roller.x().whileTrue((m_LimeLight.isCenterd) ? drivetrain.applyRequest(() -> drive.withRotationalRate(0)): null);  
+    roller.x().whileTrue((m_LimeLight.isCenterd) ? drivetrain.applyRequest(() -> drive.withRotationalRate(0)): null);  
+    //
     roller.a().whileTrue(drivetrain.applyRequest(() -> brake));
     roller.b().whileTrue(drivetrain
         .applyRequest(() -> point.withModuleDirection(new Rotation2d(-roller.getLeftY(), -roller.getLeftX()))));
@@ -72,4 +79,5 @@ public class RobotContainer {
   public Command getAutonomousCommand() {
     return runAuto;
   }
+  
 }
