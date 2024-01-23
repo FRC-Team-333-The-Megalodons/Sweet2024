@@ -12,6 +12,7 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.generated.TunerConstants;
+import frc.robot.subsystems.LimeLight;
 
 public class RobotContainer {
   private double MaxSpeed = 6; // 6 meters per second desired top speed
@@ -20,6 +21,7 @@ public class RobotContainer {
   /* Setting up bindings for necessary control of the swerve drive platform */
   private final CommandXboxController roller = new CommandXboxController(0); // My roller
   private final CommandSwerveDrivetrain drivetrain = TunerConstants.DriveTrain; // My drivetrain
+  private final LimeLight m_LimeLight = new LimeLight();
   private Command runAuto = drivetrain.getAutoPath("ThreeGamePiece");
   
   private final SwerveRequest.FieldCentric drive = new SwerveRequest.FieldCentric()
