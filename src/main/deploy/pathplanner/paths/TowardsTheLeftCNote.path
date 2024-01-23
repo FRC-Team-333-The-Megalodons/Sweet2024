@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.4048307100172925,
-        "y": 4.226375617638543
+        "x": 0.81,
+        "y": 4.5964269389986
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.7748820313773495,
-        "y": 3.47653478225106
+        "x": 1.180095315187522,
+        "y": 3.846607816455588
       },
-      "isLocked": false,
-      "linkedName": "StartPoint3GamePiece"
+      "isLocked": true,
+      "linkedName": null
     },
     {
       "anchor": {
-        "x": 7.588583053797187,
-        "y": 0.7887936060569642
+        "x": 7.724917751140366,
+        "y": 0.5940297527095644
       },
       "prevControl": {
-        "x": 6.400523548378058,
-        "y": 0.3018839726884681
+        "x": 6.536858245721238,
+        "y": 0.10712011934106824
       },
       "nextControl": null,
       "isLocked": false,
@@ -30,31 +30,13 @@
   ],
   "rotationTargets": [
     {
-      "waypointRelativePos": 0,
-      "rotationDegrees": 121.93068210371783,
+      "waypointRelativePos": 0.0,
+      "rotationDegrees": -56.85242838488633,
       "rotateFast": false
     }
   ],
   "constraintZones": [],
-  "eventMarkers": [
-    {
-      "name": "New Event Marker",
-      "waypointRelativePos": 0.0,
-      "command": {
-        "type": "parallel",
-        "data": {
-          "commands": [
-            {
-              "type": "wait",
-              "data": {
-                "waitTime": 1.5
-              }
-            }
-          ]
-        }
-      }
-    }
-  ],
+  "eventMarkers": [],
   "globalConstraints": {
     "maxVelocity": 3.0,
     "maxAcceleration": 3.0,
@@ -67,7 +49,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "AutoPaths",
+  "folder": "3GamePieceAutoPaths",
   "previewStartingState": null,
   "useDefaultConstraints": false
 }

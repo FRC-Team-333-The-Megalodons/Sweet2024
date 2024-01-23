@@ -3,25 +3,25 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.588583053797187,
-        "y": 0.7887936060569642
+        "x": 7.724917751140366,
+        "y": 0.5940297527095644
       },
       "prevControl": null,
       "nextControl": {
-        "x": 8.588583053797198,
-        "y": 0.28879360605696425
+        "x": 7.162804058923878,
+        "y": 0.8004164086180608
       },
       "isLocked": false,
       "linkedName": "LeftNotePose"
     },
     {
       "anchor": {
-        "x": 5.231940428293668,
-        "y": 1.8599947994676547
+        "x": 5.671298256176759,
+        "y": 1.737739771775839
       },
       "prevControl": {
-        "x": 6.780313062405484,
-        "y": 1.9379003408066136
+        "x": 6.989341386090181,
+        "y": 1.2086661210359455
       },
       "nextControl": null,
       "isLocked": false,
@@ -31,7 +31,7 @@
   "rotationTargets": [
     {
       "waypointRelativePos": 0,
-      "rotationDegrees": 0.0,
+      "rotationDegrees": -2.6286578210786695,
       "rotateFast": false
     }
   ],
@@ -45,11 +45,11 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": 135.0,
+    "rotation": -44.67193409907443,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "AutoPaths",
+  "folder": "3GamePieceAutoPaths",
   "previewStartingState": null,
   "useDefaultConstraints": false
 }

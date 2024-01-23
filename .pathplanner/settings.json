@@ -3,15 +3,16 @@
   "robotLength": 0.67,
   "holonomicMode": true,
   "pathFolders": [
-    "AutoPaths",
+    "3GamePieceAutoPaths",
+    "4GamePieceAutoPaths",
     "TestPaths"
   ],
   "autoFolders": [
     "Autos",
     "TestAutos"
   ],
-  "defaultMaxVel": 3.0,
-  "defaultMaxAccel": 3.0,
+  "defaultMaxVel": 4.6,
+  "defaultMaxAccel": 5.0,
   "defaultMaxAngVel": 540.0,
   "defaultMaxAngAccel": 720.0,
   "maxModuleSpeed": 4.5

@@ -3,29 +3,29 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 7.917540773353152,
-        "y": 2.4442863595098485
+        "x": 7.65764494491952,
+        "y": 4.030392258315381
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.822265496382845,
-        "y": 1.8584056921200256
+        "x": 7.741182889773188,
+        "y": 4.308852074494272
       },
       "isLocked": false,
-      "linkedName": "SecondPickUpPose"
+      "linkedName": "CenterNotePickUp"
     },
     {
       "anchor": {
-        "x": 5.327864482889461,
-        "y": 1.9883536063368423
+        "x": 5.764118194903057,
+        "y": 6.202378824510735
       },
       "prevControl": {
-        "x": 6.5623696679492145,
-        "y": 1.8769696798652862
+        "x": 6.608779637312362,
+        "y": 6.137404867402326
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "PickUpPose"
     }
   ],
   "rotationTargets": [],
@@ -39,11 +39,11 @@
   },
   "goalEndState": {
     "velocity": 0,
-    "rotation": -39.805571092265225,
+    "rotation": 13.240519915187214,
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "3GamePieceAutoPaths",
+  "folder": "4GamePieceAutoPaths",
   "previewStartingState": null,
   "useDefaultConstraints": false
 }

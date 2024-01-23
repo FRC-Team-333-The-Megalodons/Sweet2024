@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.231940428293668,
-        "y": 1.8599947994676547
+        "x": 5.671298256176759,
+        "y": 1.737739771775839
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.663454750397046,
-        "y": 2.249522506162451
+        "x": 7.102812578280137,
+        "y": 2.1272674784706354
       },
       "isLocked": false,
       "linkedName": "firstShotPose"
@@ -49,7 +49,7 @@
     "rotateFast": false
   },
   "reversed": false,
-  "folder": "AutoPaths",
+  "folder": "3GamePieceAutoPaths",
   "previewStartingState": null,
   "useDefaultConstraints": false
 }

@@ -20,6 +20,7 @@ public class RobotContainer {
   /* Setting up bindings for necessary control of the swerve drive platform */
   private final CommandXboxController roller = new CommandXboxController(0); // My roller
   private final CommandSwerveDrivetrain drivetrain = TunerConstants.DriveTrain; // My drivetrain
+  private Command runAuto = drivetrain.getAutoPath("ThreeGamePiece");
   
   private final SwerveRequest.FieldCentric drive = new SwerveRequest.FieldCentric()
       .withDeadband(MaxSpeed * 0.1).withRotationalDeadband(MaxAngularRate * 0.1) // Add a 10% deadband
@@ -67,7 +68,6 @@ public class RobotContainer {
   }
 
   public Command getAutonomousCommand() {
-    PathPlannerPath path = PathPlannerPath.fromPathFile("Drive3Meters");
-    return AutoBuilder.followPath(path);
+    return runAuto;
   }
 }
