@@ -52,8 +52,8 @@ public class RobotContainer {
     //roller.x().whileTrue(null);
     //
     roller.x().whileTrue((m_LimeLight.isCenterd) ? drivetrain.applyRequest(() -> drive.withRotationalRate(0)): null);  
-    roller.x().whileTrue((m_LimeLight.isCenterd) ? drivetrain.applyRequest(() -> drive.withRotationalRate(0)): null);  
-    roller.x().whileTrue((m_LimeLight.isCenterd) ? drivetrain.applyRequest(() -> drive.withRotationalRate(0)): null);  
+    roller.x().whileTrue((m_LimeLight.isRight) ? drivetrain.applyRequest(() -> drive.withRotationalRate(-MinAngularRate/3)): null);  
+    roller.x().whileTrue((m_LimeLight.isLeft) ? drivetrain.applyRequest(() -> drive.withRotationalRate(MinAngularRate/3)): null);  
     //
     roller.a().whileTrue(drivetrain.applyRequest(() -> brake));
     roller.b().whileTrue(drivetrain
