@@ -24,6 +24,7 @@ public class RobotContainer {
   private final CommandSwerveDrivetrain drivetrain = TunerConstants.DriveTrain; // My drivetrain
   private final LimeLight m_LimeLight = new LimeLight();
   private Command runAuto = drivetrain.getAutoPath("FourGamePiece");
+  PathPlannerPath path = PathPlannerPath.fromPathFile("ToTheSource");
   
   private final SwerveRequest.FieldCentric drive = new SwerveRequest.FieldCentric()
       .withDeadband(MaxSpeed * 0.1).withRotationalDeadband(MaxAngularRate * 0.1) // Add a 10% deadband
@@ -49,11 +50,21 @@ public class RobotContainer {
             .withRotationalRate(-roller.getRightX() * MaxAngularRate)// Drive counterclockwise with negative X (left) 
         ));
     roller.y().whileTrue(drivetrain.applyRequest(() -> drive.withRotationalRate(MinAngularRate)));
+    roller.x().whileTrue((m_LimeLight.isLeft()) ? drivetrain.applyRequest(() -> drive.withRotationalRate(MinAngularRate/3)): drivetrain.applyRequest(() -> drive.withRotationalRate(0)));
+    roller.x().whileTrue((m_LimeLight.isLeft()) ? drivetrain.applyRequest(() -> drive.withRotationalRate(-MinAngularRate/3)): drivetrain.applyRequest(() -> drive.withRotationalRate(0)));
+    roller.rightBumper().whileTrue(AutoBuilder.followPath(path));
     //roller.x().whileTrue(null);
     //
-    roller.x().whileTrue((m_LimeLight.isCenterd) ? drivetrain.applyRequest(() -> drive.withRotationalRate(0)): null);  
-    roller.x().whileTrue((m_LimeLight.isRight) ? drivetrain.applyRequest(() -> drive.withRotationalRate(-MinAngularRate/3)): null);  
-    roller.x().whileTrue((m_LimeLight.isLeft) ? drivetrain.applyRequest(() -> drive.withRotationalRate(MinAngularRate/3)): null);  
+    //
+    
+  
+      //roller.x().whileTrue(drivetrain.applyRequest(() -> drive.withRotationalRate(MinAngularRate/3)));  
+    /* }else if (m_LimeLight.isLeft) {
+          roller.x().whileTrue(drivetrain.applyRequest(() -> drive.withRotationalRate(MinAngularRate/3)));
+    }else if (m_LimeLight.isRight) {
+        roller.x().whileTrue(drivetrain.applyRequest(() -> drive.withRotationalRate(-MinAngularRate/3)));
+
+    }*/
     //
     roller.a().whileTrue(drivetrain.applyRequest(() -> brake));
     roller.b().whileTrue(drivetrain

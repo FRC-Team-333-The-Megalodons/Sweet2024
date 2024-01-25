@@ -13,8 +13,6 @@ import frc.robot.LimeLightHelper;
 
 public class LimeLight extends SubsystemBase {
   /** Creates a new Limelight. */
-  public boolean tracking = false;
-  public boolean isInRange = false;
   public boolean isCenterd = false;
   public boolean isLeft = false;
   public boolean isRight = false;
@@ -33,17 +31,38 @@ public class LimeLight extends SubsystemBase {
   private  double getTheObject(){
     return LimeLightHelper.getTX("limelight");
   }
-  public void driveTowardsObject(){
-    if (getTheObject() == 0) {
+  public boolean isCenterd(){
+     if (getTheObject() > -4.0 && getTheObject()< 4.0) {
+        return true;
+    }else{
+      return false;
+    }
+  }
+  public boolean isRight(){
+    if (getTheObject() > 4.0) {
+        return true;
+    }else{
+      return false;
+    }
+  }
+  public boolean isLeft(){
+    if (getTheObject() < -4.0 ) {
+        return true;
+    }else{
+      return false;
+    }
+  }
+  public void directionOfTheObject(){
+    if (getTheObject() > -4.0 && getTheObject()< 4.0) {
         isCenterd = true;
         isLeft = false;
         isRight = false;
 
-    }else if (getTheObject() < 0 ) {
+    }else if (getTheObject() < -4.0 ) {
         isLeft = true;
         isCenterd = false;
         isRight = false;
-    } else {
+    } else if (getTheObject() > 4.0) {
         isLeft = false;
         isCenterd = false;
         isRight = true;
@@ -54,6 +73,11 @@ public class LimeLight extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    getTheObject();
+    directionOfTheObject();
+     SmartDashboard.putBoolean("IsCenterd", isCenterd);
+     SmartDashboard.putBoolean("IsRight", isRight);
+     SmartDashboard.putBoolean("IsLeft", isLeft);
      SmartDashboard.putNumber("TX", LimeLightHelper.getTX("limelight"));
      SmartDashboard.putNumber("TY", LimeLightHelper.getTY("limelight"));
      SmartDashboard.putNumber("TA", LimeLightHelper.getTA("limelight"));

@@ -5,6 +5,7 @@
   "pathFolders": [
     "3GamePieceAutoPaths",
     "4GamePieceAutoPaths",
+    "Automation",
     "TestPaths"
   ],
   "autoFolders": [
